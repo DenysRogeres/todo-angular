@@ -20,4 +20,12 @@ export class AppComponent {
   alterarTexto() {
     this.title = "New title";
   }
+
+  remover(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+
+    if(index != -1) {
+      this.todos.splice(index, 1);
+    }
+  }
 }
