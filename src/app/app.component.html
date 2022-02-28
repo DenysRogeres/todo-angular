@@ -3,8 +3,20 @@
 <ul>
   <li *ngFor="let todo of todos">
     {{ todo.id }}.{{ todo.title }}
-    <button *ngIf="!todo.done">CONCLUIR</button> |
-    <button *ngIf="todo.done">REFAZER</button> |
+    <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
+    <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> |
     <button (click)="remover(todo)">REMOVER</button>
   </li>
 </ul>
+
+<form>
+  <fieldset [formGroup]="form">
+    <label>Tarefa: </label>
+    <input
+      type="text"
+      placeholder="Título da Tarefa"
+      maxlength="60"
+      formControlName="title">
+    <button>Salvar</button>
+  </fieldset>
+</form>
