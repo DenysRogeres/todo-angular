@@ -20,11 +20,17 @@ export class AppComponent {
         Validators.required
       ])]
     })
+  }
 
-    this.todos.push({id: 1, title: "Cortar cabelo", done: true})
-    this.todos.push({id: 2, title: "Passear com cachorro", done: false})
-    this.todos.push({id: 3, title: "Estudar para prova", done: false})
-    this.todos.push({id: 4, title: "Limpar casa", done: false})
+  add() {
+    const title = this.form.controls['title'].value;
+    const id = this.todos.length + 1;
+    this.todos.push(new Todo(id, title, false));
+    this.clear();
+  }
+
+  clear() {
+    this.form.reset;
   }
 
   alterarTexto() {
