@@ -1,28 +1,43 @@
 <div class="headerContainer">
   <h1>{{ title }}</h1>
 </div>
-  <div class="inputContainer">
-    <form>
-      <p>Nova tarefa</p>
-      <fieldset [formGroup]="form">
-        <input
-          type="text"
-          placeholder="Título da tarefa"
-          maxlength="60"
-          formControlName="title">
-          <small *ngIf="form.invalid && !form.pristine">Este campo deve ter entre 3 a 60 caracteres</small>
-        <button [disabled]="form.invalid" (click)="add()">Adicionar</button>
-      </fieldset>
-    </form>
-  </div>
+<div class="inputContainer">
+  <form>
+    <p>Nova tarefa</p>
+    <fieldset [formGroup]="form">
+      <input
+        type="text"
+        placeholder="Título da tarefa"
+        maxlength="60"
+        formControlName="title">
+        <!--- <small *ngIf="form.invalid && !form.pristine">Este campo deve ter entre 3 a 60 caracteres</small> --->
+      <button [disabled]="form.invalid" (click)="add()">Adicionar</button>
+    </fieldset>
+  </form>
+</div>
 
-<ul>
-  <p *ngIf="this.todos.length == 0"><small>Não tem tarefa hoje</small></p>
-  <li *ngFor="let todo of todos">
-    {{ todo.id }}.{{ todo.title }}
-    <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
-    <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> |
-    <button (click)="remover(todo)">REMOVER</button>
-  </li>
-</ul>
+<div class="taskContainer">
+  <!----<ul>
+    <p *ngIf="this.todos.length == 0"><small>Não tem tarefa hoje</small></p>
+    <li *ngFor="let todo of todos">
+      {{ todo.title }}
+      <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
+      <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> |
+      <button (click)="remover(todo)">REMOVER</button>
+    </li>
+  </ul> -->
+
+  <table>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.title }}</td>
+        <td>
+          <span *ngIf="!todo.done" (click)="markAsDone(todo)"><img src="../assets/tick.png" width="20px" alt=""></span>
+          <span *ngIf="todo.done" (click)="markAsUndone(todo)"><img src="../assets/restart.png" width="20px" alt=""></span>
+          <span (click)="remover(todo)"><img src="../assets/trash.png" width="20px" alt=""></span>
+        </td>
+      </tr>
+    </tbody>
+</table>
+</div>
 

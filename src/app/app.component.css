@@ -25,7 +25,6 @@ ul {
 }
 
 .inputContainer button {
-
   background: #00B37E;
   color: white;
 
@@ -54,6 +53,38 @@ ul {
   margin-bottom: 0.5rem;
 }
 
+.taskContainer{
+  max-width: 600px;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+
+.taskContainer table{
+  width: 100%;
+  border-spacing: 0 0.5rem;
+}
+
+.taskContainer table tr {
+  display: flex;
+  justify-content: space-between;
+
+  background: #202024;
+  border-radius: 0.25rem;
+  line-height: 1.5rem;
+
+  margin-top: 0.5rem;
+}
+
+.taskContainer table td {
+  padding: 1rem 2rem;
+}
+
+.taskContainer table td span{
+  cursor: pointer;
+  padding: 0 0 0 1rem;
+}
+
 input {
   padding: 0 1rem;
   width: 30vw;
@@ -70,7 +101,6 @@ input {
   box-shadow: 0 0 0 0;
   outline: 0;
 }
-
 
 fieldset {
   border: 0;
