@@ -17,16 +17,6 @@
 </div>
 
 <div class="taskContainer">
-  <!----<ul>
-    <p *ngIf="this.todos.length == 0"><small>Não tem tarefa hoje</small></p>
-    <li *ngFor="let todo of todos">
-      {{ todo.title }}
-      <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> |
-      <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> |
-      <button (click)="remover(todo)">REMOVER</button>
-    </li>
-  </ul> -->
-
   <table>
     <tbody>
       <tr *ngFor="let todo of todos">
