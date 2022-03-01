@@ -1,5 +1,21 @@
-<h1>{{ title }}</h1>
-<button (click)="alterarTexto()">Mudar texto</button>
+<div class="headerContainer">
+  <h1>{{ title }}</h1>
+</div>
+  <div class="inputContainer">
+    <form>
+      <p>Nova tarefa</p>
+      <fieldset [formGroup]="form">
+        <input
+          type="text"
+          placeholder="Título da tarefa"
+          maxlength="60"
+          formControlName="title">
+          <small *ngIf="form.invalid && !form.pristine">Este campo deve ter entre 3 a 60 caracteres</small>
+        <button [disabled]="form.invalid" (click)="add()">Adicionar</button>
+      </fieldset>
+    </form>
+  </div>
+
 <ul>
   <p *ngIf="this.todos.length == 0"><small>Não tem tarefa hoje</small></p>
   <li *ngFor="let todo of todos">
@@ -10,15 +26,3 @@
   </li>
 </ul>
 
-<form>
-  <fieldset [formGroup]="form">
-    <label>Tarefa: </label>
-    <input
-      type="text"
-      placeholder="Título da Tarefa"
-      maxlength="60"
-      formControlName="title">
-      <small *ngIf="form.invalid && !form.pristine">Este campo deve ter entre 3 a 60 caracteres</small>
-    <button [disabled]="form.invalid" (click)="add()">Salvar</button>
-  </fieldset>
-</form>

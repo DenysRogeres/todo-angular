@@ -8,7 +8,7 @@ import { Todo } from './models/todo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title: string = "Hello World";
+  public title: string = "Tarefas";
   public todos: Todo[] = [];
   public form: FormGroup;
 
@@ -33,11 +33,6 @@ export class AppComponent {
 
   clear() {
     this.form.reset;
-  }
-
-
-  alterarTexto() {
-    this.title = "New title";
   }
 
   remover(todo: Todo) {

@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background: #121414;
+  --title: #E1E1E6;
+  --text: #A8A8B3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  @media(max-width: 1080px) {
+      font-size: 93.75%
+  }
+  @media(max-width: 720px) {
+      font-size: 87.5%
+  }
+}
+
+body {
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  color: var(--title);
+
+  height: 100vh;
+}
+
+body, input, textarea, button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
