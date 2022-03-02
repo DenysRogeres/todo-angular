@@ -2,9 +2,8 @@
   <h1>{{ title }}</h1>
 </div>
 <div class="inputContainer">
-  <form>
+  <form [formGroup]="form">
     <p>Nova tarefa</p>
-    <fieldset [formGroup]="form">
       <input
         type="text"
         placeholder="Título da tarefa"
@@ -12,13 +11,12 @@
         formControlName="title">
         <!--- <small *ngIf="form.invalid && !form.pristine">Este campo deve ter entre 3 a 60 caracteres</small> --->
       <button [disabled]="form.invalid" (click)="add()">Adicionar</button>
-    </fieldset>
   </form>
 </div>
 
 <div class="taskContainer">
   <table>
-    <tbody>
+    <tbody *ngIf="todos">
       <tr *ngFor="let todo of todos">
         <td>{{ todo.title }}</td>
         <td>

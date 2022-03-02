@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Todo } from './models/todo.model';
 
 @Component({
@@ -21,12 +21,14 @@ export class AppComponent {
       ])]
     })
     this.load();
+
   }
 
   add() {
     const title = this.form.controls['title'].value;
     const id = this.todos.length + 1;
     this.todos.push(new Todo(id, title, false));
+
     this.save();
     this.clear();
   }
