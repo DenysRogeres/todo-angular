@@ -20,7 +20,7 @@
   <table>
     <tbody *ngIf="todos">
       <tr *ngFor="let todo of todos">
-        <td *ngIf="todo.done == true"><s>{{ todo.title }}</s></td>
+        <td id="taskDone" *ngIf="todo.done == true"><s>{{ todo.title }}</s></td>
         <td *ngIf="todo.done == false">{{ todo.title }}</td>
         <td>
           <span *ngIf="!todo.done" (click)="markAsDone(todo)"><img src="../assets/tick.png" width="20px" alt=""></span>
