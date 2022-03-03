@@ -8,6 +8,7 @@ import { Todo } from '../models/todo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public title: String = "Todo.list"
   public todos: Todo[] = [];
   public form: FormGroup;
 
